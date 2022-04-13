@@ -44,10 +44,33 @@ function findUnicornByFood() {
         }
     )
 }
+
+function unicornNameFilter() {
+    nameIsChecked = "unchecked"
+    weightIsChecked = "unchecked"
+    if ($("#unicornNameFilter").is(":checked"))
+        nameIsChecked = "checked"
+
+    if ($("#unicornWeightFilter").is(":checked"))
+        weightIsChecked = "checked"
+
+    $.ajax(
+        {
+            url: "https://secure-hamlet-37695.herokuapp.com/unicornNameFilter",
+            type: "POST",
+            data: {
+                "nameIsChecked": nameIsChecked,
+                "weightIsChecked": weightIsChecked
+            },
+            success: process_res
+        }
+    )
+}
 //
 function setup() {
     $("#findUnicornByName").click(findUnicornByName)
     $("#findUnicornByFood").click(findUnicornByFood)
+    $("#filter").click(unicornNameFilter)
 }
 
 // function filter(){
