@@ -77,16 +77,15 @@ app.post("/findUnicornByWeight", function (req, res) {
     if (req.body.weightIsChecked == "checked")
         aList.push("weight")
 
-    unicornModel.find({
-        aList: 1
-    }, function (err, unicorns) {
+    unicornModel.find({} ,
+    function (err, unicorns) {
         if (err) {
             console.log("Error " + err);
         } else {
             console.log("Data " + unicorns);
         }
         res.send(unicorns);
-    });
+    }).sort({alist:1});
 })
 
 
