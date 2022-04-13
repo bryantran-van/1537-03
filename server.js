@@ -85,7 +85,7 @@ app.post("/findUnicornByWeight", function (req, res) {
             console.log("Data " + unicorns);
         }
         res.send(unicorns);
-    }).sort({alist:1});
+    }).sort({aList:1});
 })
 
 
