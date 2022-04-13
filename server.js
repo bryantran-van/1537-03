@@ -70,17 +70,16 @@ app.post("/findUnicornByWeight", function (req, res) {
     console.log(req.body.nameIsChecked)
     console.log(req.body.weightIsChecked)
     aList = []
-    if (req.body.appleIsChecked == "checked")
+    if (req.body.nameIsChecked == "checked")
         aList.push("name")
 
 
-    if (req.body.carrotIsChecked == "checked")
+    if (req.body.weightIsChecked == "checked")
         aList.push("weight")
 
     unicornModel.find({
-        loves: {
-            $in: aList
-        }
+        $in: aList
+
     }, function (err, unicorns) {
         if (err) {
             console.log("Error " + err);
